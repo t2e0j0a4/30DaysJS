@@ -1,6 +1,6 @@
 # 30DaysJS
 
 It's a Practise of Skills and learning new daily.\
-Can checkout [https://javascript30.com/](Javascript30)
+Can checkout [Javascript30](https://javascript30.com/)
 
-01 - Drumkit : [https://js30days-drumkit.netlify.app/](Checkout!)
+01 - Drumkit : [Checkout!](https://js30days-drumkit.netlify.app/)
