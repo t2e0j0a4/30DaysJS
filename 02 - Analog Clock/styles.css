@@ -160,6 +160,7 @@
     .flipBtns {
         width: 90%;
     }
+    
 }
 
 @media only screen and (max-width : 500px) {
@@ -167,11 +168,21 @@
     width: 300px;
     height: 300px;
   }
+  .digitalFlip span {
+    left: 24%;
+    top: 42%;
+    font-size: 32px;
+  }
 }
 
 @media only screen and (max-width : 300px) {
   .clockFace {
     width: 260px;
     height: 260px;
+  }
+  .digitalFlip span {
+    left: 23%;
+    top: 42%;
+    font-size: 27px;
   }
 }
