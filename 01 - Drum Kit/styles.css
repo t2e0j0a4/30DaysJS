@@ -1,0 +1,61 @@
+/* External Fonts Import */
+
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+
+/* CSS Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Ṃain Styles */
+
+.wholePage {
+    width: 100%;
+    height: 100vh;
+    background-image: url("./background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+    column-gap: 1rem;
+    -webkit-user-select : none;
+    user-select: none;
+}
+
+.key {
+    text-transform: uppercase;
+    font-family: 'tilt neon';
+    padding: 8px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    background: #232323e0;
+    color: white;
+    border: 2px solid #000;
+    border-radius: 6px;
+    transition: all 0.08s linear;
+    cursor: default;
+}
+
+.key kbd {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.key span {
+    font-size: 22px;
+}
+
+.keyPlays {
+    transform: scale(1.12);
+    border: 2px solid rgb(245, 201, 3);
+    background: rgb(245, 201, 3);
+    color: #232323;
+}

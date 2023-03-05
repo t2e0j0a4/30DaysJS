@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#">
+    <title>01 - Drum Kit</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <!-- Layout -->
+    <div class="wholePage">
+        <div data-key="65" class="key">
+            <kbd>a</kbd>
+            <span class="keySound">clap</span>
+        </div>
+        <div data-key="83" class="key">
+            <kbd>s</kbd>
+            <span class="keySound">hithat</span>
+        </div>
+        <div data-key="68" class="key">
+            <kbd>d</kbd>
+            <span class="keySound">kick</span>
+        </div>
+        <div data-key="70" class="key">
+            <kbd>f</kbd>
+            <span class="keySound">openhat</span>
+        </div>
+        <div data-key="71" class="key">
+            <kbd>g</kbd>
+            <span class="keySound">boom</span>
+        </div>
+        <div data-key="72" class="key">
+            <kbd>h</kbd>
+            <span class="keySound">ride</span>
+        </div>
+        <div data-key="74" class="key">
+            <kbd>j</kbd>
+            <span class="keySound">snare</span>
+        </div>
+        <div data-key="75" class="key">
+            <kbd>k</kbd>
+            <span class="keySound">tom</span>
+        </div>
+        <div data-key="76" class="key">
+            <kbd>l</kbd>
+            <span class="keySound">tink</span>
+        </div>
+    </div>
+
+    <!-- Audio Tapes -->
+    <audio data-key="65" src="./sounds/clap.wav"></audio>
+    <audio data-key="83" src="./sounds/hihat.wav"></audio>
+    <audio data-key="68" src="./sounds/kick.wav"></audio>
+    <audio data-key="70" src="./sounds/openhat.wav"></audio>
+    <audio data-key="71" src="./sounds/boom.wav"></audio>
+    <audio data-key="72" src="./sounds/ride.wav"></audio>
+    <audio data-key="74" src="./sounds/snare.wav"></audio>
+    <audio data-key="75" src="./sounds/tom.wav"></audio>
+    <audio data-key="76" src="./sounds/tink.wav"></audio>
+
+
+    <!-- Javascript -->
+
+    <script>
+
+        // Plays Sounds
+        function PlaySound(modeType) {
+            let audioOfKey = document.querySelector(`audio[data-key="${modeType}"]`);
+            audioOfKey.currentTime = 0; 
+            audioOfKey.play();
+        }
+
+        // Keyboard Events
+        window.addEventListener('keydown', function(e) {
+            let keyDownAudio = document.querySelector(`div[data-key="${e.keyCode}"]`);
+            if (!keyDownAudio) return 0;
+            PlaySound(e.keyCode);
+            keyDownAudio.classList.add('keyPlays');
+        })
+
+        // Pointer Click Events
+        Array.from(document.querySelectorAll('.key')).forEach((key)=>{
+            key.addEventListener('click', function(e) {
+                if (!e.target.attributes["data-key"]) return 0;
+                let keyPressedCode = parseInt(e.target.attributes["data-key"].value);
+                PlaySound(keyPressedCode);
+                key.classList.add('keyPlays');
+            })
+        })
+
+        // Transition Ends
+        Array.from(document.querySelectorAll('.key')).forEach((key)=>{
+            key.addEventListener('transitionend', function(e){
+                if (e.propertyName !== 'transform') return 0;
+                e.target.classList.remove('keyPlays');
+            })
+        })
+
+    </script>
+
+</body>
+</html>
