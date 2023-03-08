@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03 - Playing with CSS Variables and JS</title>
+    <link rel="stylesheet" href="./Prism.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    
+    <div class="outerBox">
+        <h1 class="header">Playing with <span class="highLighter">CSS</span> Variables and <span class="highLighter">Javascript.</span></h1>
+        <div class="innerBox">
+            <div class="pointedDiv"></div>
+            <div class="changes">
+                <label for="change">Change the Opactity of Box above : </label>
+                <input type="range" name="mainOpac" id="change" min="10" max="100" value="70" data-sizes="%">
+            </div>
+            <div class="changes">
+                <label for="color">Change the Color of Box above : </label>
+                <input type="color" name="mainClr" id="color">
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="codesOfAbove">
+        <h2>Below is the Code for above implementation.</h2>
+
+        <div class="code-btns">
+            <button data-showing="html" type="button">HTML</button>
+            <button data-showing="css" type="button">CSS</button>
+            <button data-showing="js" type="button">Javascript</button>
+        </div>
+
+        <div class="code-html impl-codes" data-shower="html">
+            <pre>
+                <code class="language-html">
+    &lt;div class="outerBox"&gt;
+        &lt;h1 class="header"&gt;Playing with &lt;span class="highLighter"&gt;CSS&lt;/span&gt; Variables and &lt;span class="highLighter"&gt;Javascript
+        &lt;/span&gt;&lt;/h1&gt;
+        &lt;div class="innerBox"&gt;
+            &lt;div class="pointedDiv"&gt;&lt;/div&gt;
+            &lt;div class="changes"&gt;
+                &lt;label for="change"&gt;Change the Opactity of Box above : &lt;/label&gt;
+                &lt;input type="range" name="mainOpac" id="change" min="10" max="100" value="10" data-sizes="%"&gt;
+            &lt;/div&gt;
+            &lt;div class="changes"&gt;
+                &lt;label for="color"&gt;Change the Color of Box above : &lt;/label&gt;
+                &lt;input type="color" name="mainClr" id="color"&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+                </code>
+            </pre>
+        </div>
+
+        <div class="code-js impl-codes" data-shower="js">
+            <pre>
+                <code class="language-js">
+    let allInputs = Array.from(document.querySelectorAll('.changes input'));
+
+    function handleChange() {
+        let size = this.dataset.sizes || '';
+        document.documentElement.style.setProperty(`--${this.name}`, this.value + size);
+    }
+
+    allInputs.forEach((input)=>{
+        input.addEventListener('change',handleChange);
+        input.addEventListener('mousemove',handleChange);
+    })
+                </code>
+            </pre>
+        </div>
+
+        <div class="code-css impl-codes" data-shower="css">
+            <pre>
+                <code class="language-css">
+    /* Font Imports */
+
+    @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap");
+
+    /* Root Variables */
+    :root {
+        --mainFont: "Red Hat Display", sans-serif;
+
+        --mainClr: green;
+        --mainOpac: 70%;
+    }
+
+    /* CSS Resets */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Main Styles */
+
+    body {
+        background-color: #011b2c;
+    }
+
+    .outerBox {
+        width: 100%;
+        height: 100%;
+        background: #011b2c;
+        color: #fff;
+        font-family: var(--mainFont);
+    }
+
+    .header {
+        font-size: 8vmin;
+        width: 96%;
+        text-align: center;
+        padding: 1rem 0;
+    }
+
+    .header span {
+        color: var(--mainClr);
+        opacity: var(--mainOpac);
+    }
+
+    .innerBox {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .pointedDiv {
+        width: 264px;
+        height: 264px;
+        margin: 10px;
+        border-radius: 50%;
+        box-shadow: 0px 2px 4px 6px #363636;
+        background-color: var(--mainClr);
+        opacity: var(--mainOpac);
+    }
+
+    .changes {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .changes label {
+        font-size: 6vmin;
+        word-break: break-all;
+    }
+
+    .changes input {
+        cursor: pointer;
+    }
+                </code>
+            </pre>
+        </div>
+
+    </div>
+
+    <script>
+
+        let allInputs = Array.from(document.querySelectorAll('.changes input'));
+        
+        function handleChange() {
+            let size = this.dataset.sizes || '';
+            document.documentElement.style.setProperty(`--${this.name}`, this.value + size);
+        }
+        
+        allInputs.forEach((input)=>{
+            input.addEventListener('change',handleChange);
+            input.addEventListener('mousemove',handleChange);
+        })
+        
+        </script>
+
+    <script>
+        
+        let codeShowBtns =  Array.from(document.querySelectorAll('.code-btns button'));
+        let allCodes = Array.from(document.querySelectorAll('.impl-codes'));
+
+        function showCode(){
+            codeShowBtns.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            allCodes.forEach((code)=>{
+                let forCode = code.dataset.shower;
+                if (this.dataset.showing === forCode) {
+                    code.classList.add('showTheCodes');
+                }
+                else {
+                    code.classList.remove('showTheCodes');
+                }
+            })
+        }
+
+        codeShowBtns.forEach((btn)=>{
+            btn.addEventListener('click',showCode);
+        })
+
+    </script>
+
+    <script src="./Prism.js"></script>
+
+</body>
+</html>
