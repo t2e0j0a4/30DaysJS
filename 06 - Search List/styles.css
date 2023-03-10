@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
+
+:root {
+    --mainFont : 'Manrope', sans-serif;
+}
+
+/* Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style-type: none;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #1b1614;
+}
+
+.searchListPage {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    row-gap: 1rem;
+}
+
+.searchListInput {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchListInput input {
+    padding: 10px 16px;
+    width: 90%;
+    border: 1px solid #232323;
+    outline: none;
+    border-radius: 3px;
+    font-size: 18px;
+    font-family: var(--mainFont);
+}
+
+.searchListResult {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+    row-gap: 1rem;
+}
+
+.searchListResult .searchListResultHead {
+    width: 100%;
+    font-size: 32px;
+    font-family: var(--mainFont);
+    color: #fff;
+}
+
+.searchListResult .searchListData {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* row-gap: 0.8rem; */
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.searchListResult .searchListData li {
+    width: 100%;
+    border: 1px solid #fff;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.searchListResult .searchListData li:nth-child(even) {
+    transform: skewX(6deg);
+}
+
+.searchListResult .searchListData .searchListResultsEmpty {
+    transform: none;
+}
+
+.searchListResult .searchListData li:nth-child(odd) {
+    transform: skewX(-6deg);
+}
+
+.searchListResult .searchListData li > *:last-child {
+    background-color: rgb(255, 255, 255);
+    padding: 2px 4px;
+    border-radius: 4px;
+    color: #232323;
+}
+
+.searchListResult .searchListData .searchListResultsEmpty {
+    border: none;
+    width: 100%;
+    padding: 8px 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.searchListResult .searchListData li span {
+    font-size: 20px;
+    font-family: var(--mainFont);
+    color: #fff;
+}
+
+@media only screen and (max-width: 400px) {
+    .searchListInput input {
+        width: 94%;
+        font-size: 16px;
+    }
+
+    .searchListResult {
+        width: 94%;
+    }
+
+    .searchListResult .searchListResultHead {
+        font-size: 28px;
+    }
+
+    .searchListResult .searchListData li {
+        padding: 5px 10px;
+    }
+
+    .searchListResult .searchListData li span {
+        font-size: 12px;
+    }
+}
