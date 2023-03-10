@@ -1,6 +1,8 @@
 console.log('Society');
 console.log(Array.prototype);
 
+// map(), filter(), reduce(), sort()
+
 // Some Data
 let society = [
     {fName : "John", lName : "Doe", birth : "1945", death : "2020"},
@@ -81,3 +83,35 @@ society.sort((a,b)=>{
     return a.birth > b.birth ? 1 : -1;
 })
 console.table(society);
+
+
+// Some more methods...
+// some(), every(), find(), findIndex()
+
+let students = [
+    {name : "Vijay", rno : 1212},
+    {name : "Teja", rno : 1232},
+    {name : "Raj", rno : 1110},
+    {name : "Arjun", rno : 1213},
+    {name : "Arun", rno : 1290},
+]
+
+// some() method : Atleast one is satisfied returns true.
+// atleast student names are 3 character long.
+
+let studentNameLength = students.some((stud)=>{
+    return stud.name.length >= 3;
+})
+
+// let studentNameLength = students.some((stud) => stud.name.length >= 3);
+
+console.log({studentNameLength});
+
+// every() : checks every one satisfy condition or not.
+// every student must have 4 digit length roll number.
+
+let rollNumberLength = students.every((stud) => {
+    return String(stud.rno).length === 4;
+})
+
+console.log({rollNumberLength});
