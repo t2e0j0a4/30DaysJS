@@ -6,4 +6,5 @@ Can checkout [Javascript30.com](https://javascript30.com/)
 02 - Analog & Digital Clock : [Checkout!](https://js30days-analogdigitalclock.netlify.app/)\
 03 - Prism.js & Playing with CSS Variables : [Checkout!](https://js30days-prismjs.netlify.app/)\
 04 - Array Methods : filter() | map() | sort() | reduce()\
-05 - Flex Panels : [Checkout!](https://js30days-fleximages.netlify.app/)
+05 - Flex Panels : [Checkout!](https://js30days-fleximages.netlify.app/)\
+06 - Search List : [Checkout!](https://js30days-searchlist.netlify.app/)
