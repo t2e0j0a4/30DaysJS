@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08 - Unknown Developer Console Tools</title>
+</head>
+<body>
+
+    <p class="para" data-model="yellowPara">Hey All! This is a Paragraph of Yellow color.</p>
+
+    <script>
+
+        document.querySelector('.para').addEventListener('click', function() {
+            this.style.color = 'yellow';
+            this.style.backgroundColor = "#232323";
+        })
+
+        // 1.
+        // Simple Data Logging. console.log()
+        console.log('All console methods.');
+
+        // 2.
+        // Table. console.table() is used to more detailly show arrays and objects
+        let students = [{name : "John", age : 18}, {name : "Ajay", age : 19}]
+        console.table(students);
+
+        // 3.
+        // Info. console.info() for some info in console.
+        console.info('For loop is Syncronous.');
+
+        // 4.
+        // Warning. console.warn() for showing warninigs.
+        console.warn('You will be in an endless loop.');
+
+        // 5.
+        // Error. console.error() for error display.
+        console.error('Something went wrong!');
+
+        // 6.
+        // Assert. console.assert() takes 2 params. 1st is a condition and if it is false/Assertion then 2nd param data in logged.
+        console.assert(100+2 === 101, "Hey you're false.");
+        // Assertion failed: Hey you're false. <- Like this.
+
+        // 7.
+        // Count. console.count() counts the number of occurences logged for a string passed.
+        let someText = "The way you're in the way is the way you will be in a right way";
+        someText = someText.toLowerCase();
+        let someTextArray = someText.split(' ');
+        someTextArray.forEach((word) => console.count(word));
+
+        // 8.
+        // Time. console.time() & console.timeEnd() You can stamp the time taken to run/execute the code.
+        let count = 0;
+        console.log('Count : ' + count);
+        console.time('Counting Time ');
+        for (let i=0; i<100000; i++) {
+            count = count + 1;
+        }
+        console.timeEnd('Counting Time ');
+        console.log('Count : ' + count);
+
+        // 9.
+        // Group. console.group() or console.groupCollapsed() & console.groupEnd() use to group a block of strings.
+        let githubUsers = [
+            {username : "t2e0j0a4", name : "Nagateja"},
+            {username : "devteja04", name : "V Nagateja"}
+        ]
+
+        githubUsers.forEach((user) => {
+
+            // console.group(`${user.username} Github `); // Group Opens.
+
+            // Here can also use console.groupCollapse(). Default it is open you can collapse the group.
+            console.groupCollapsed(`${user.username} Github `); // Group Collapses.
+            
+
+            console.log(`${user.username} is a github user.`);
+            console.log(`${user.name}'s Username is ${user.username}.`);
+            console.log(`${user.name} has super streak.`);
+
+            console.groupEnd(`${user.username} Github `); // Group Ends.
+
+        })
+
+        let para = document.querySelector('p');
+        console.log(para);
+        
+        // 10.
+        // Dir. Use console.dir() to get full directory of element selector.
+        console.dir(para); // Run and Checkout.
+
+        // 11.
+        // You know you can style how your data is shown on console.
+        // Simply in console.log() takes 2 params and definetly in the first param use '%c' in starting of string.
+        // You can even use multiple styles.
+        console.log('%c Hey this is a sample.', 'color : blue ; font-size : 20px');
+
+    </script>
+    
+</body>
+</html>
