@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+
+:root {
+    --mainFont : 'Tilt Neon', cursive;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #07c667;
+}
+
+.head {
+    width: 96%;
+    margin: 1rem;
+    text-align: center;
+    font-size: 32px;
+    font-family: var(--mainFont);
+}
+
+.inbox {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 1rem auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    justify-content: center;
+    align-items: center;
+    row-gap: 0.8rem;
+    border-radius: 4px;
+    box-shadow: 6px 6px 4px 4px #414141b0;
+
+}
+
+.inbox .deleteOption {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.inbox .deleteOption button {
+    padding: 4px 8px;
+    outline: none;
+    border: 1px solid #232323;
+    background: white;
+    border-radius: 4px;
+    font-family: var(--mainFont);
+    font-size: 18px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px 1px #232323a0;
+    transition: transform 0.5s linear;
+}
+
+.inbox .deleteOption button:hover {
+    box-shadow: 2px 2px 3px 1px #232323a0;
+    transform : scale(0.9);
+}
+
+.inbox .item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 0.8rem;
+}
+
+.inbox .item input {
+    cursor: pointer;
+    transition: transform 0.3s linear;
+    transform: scale(1.10);
+}
+
+.inbox .item input[type="checkbox"]:hover {
+    transform: scale(2);
+}
+
+.inbox .item label {
+    font-family: var(--mainFont);
+    font-size: 18px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.inbox .item input[type="checkbox"]:checked + label {
+    text-decoration: line-through;
+}
+
+@media only screen and (max-width : 650px) {
+    .inbox {
+        margin : 1rem;
+    }
+}
